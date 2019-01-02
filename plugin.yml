@@ -1,0 +1,9 @@
+name: ${project.name}
+main: mc.arena.towerRush.TowerRush
+version: ${project.version}
+depend: [BattleArena]
+authors: [alkarin_v]
+
+commands:
+   towerRush:
+      aliases: [tr]

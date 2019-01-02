@@ -1,0 +1,45 @@
+## for more help configuring see the wiki
+## https://github.com/alkarinv/BattleArena/wiki
+## Change this file to customize your event
+
+TowerRush:
+    enabled: true
+    database: tr # or delete if you dont want wins/losses/top, needs BattleTracker
+    rated: true # if database is enabled
+    prefix: "&b[TowerRush]&e"
+    command: tr
+    victoryCondition: Custom
+    matchTime: 300 # in seconds
+    nLives: infinite
+    nTeams: 2
+    teamSize: 1+
+    defaults: ## Global options for the entire match
+        options: [woolTeams, alwaysTeamNames]
+    preReqs: ## requirements to join
+        options: []
+    onEnter:
+        options: [storeAll]
+    onLeave:
+        options: [restoreAll]
+    onJoin:
+        options: [teleportWaitRoom, pvpOff, hunger=20]
+    onOpen:
+        options: [pvpOff]
+    onPrestart:
+        options: [pvpOff, deEnchant]
+        giveClass:
+            default: gladiator
+    onStart:
+        options: [pvpOn, teleportIn, hunger=20]
+    onComplete: ## Called when a player leaves, or no longer is supposed to spawn in arena
+        options: [teleportOut]
+    onFinish: ### effects after game is finished
+        options: []
+    onSpawn:
+        options: [health=20, hunger=20, respawnWithClass, giveItems]
+        items:
+          - compass: 1
+    onDeath:
+        options: [clearInventory, respawn]
+    winner:
+        options: [health=20, hunger=20]
